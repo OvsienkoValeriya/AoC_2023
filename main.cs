@@ -2,12 +2,13 @@ using System;
 using System.IO; 
 using System.Text;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 public static class Program {
   public static void Main (string[] args) {
 
-    Console.WriteLine(Day1());
-    Console.WriteLine(Day1_2());
+    Console.WriteLine(Day2());
+    Console.WriteLine(Day2_1());
   }
   public static int Day1()
   {
@@ -98,4 +99,108 @@ public static class Program {
   }
     return retval;
 }
+
+  public static int Day2()
+  {
+    var lines = File.ReadAllLines("inputs/day2.txt");
+    var pattern = @"Game (\d+): (.*$)";
+    var retval = 0;
+    foreach(var line in lines)
+    {
+      var match = Regex.Match(line, pattern);
+
+      var gameNum = int.Parse(match.Groups[1].Value);
+      
+      var data = match.Groups[2].Value;
+      var sets = data.Split(new[] { ';' });
+      
+      var validGames = new List<int>();
+      foreach(var s in sets)
+      {
+        var redCount = GetColorCount(s, "red");
+        var greenCount = GetColorCount(s, "green");
+        var blueCount = GetColorCount(s, "blue");
+        
+        if (redCount <= 12 && greenCount <= 13 && blueCount <= 14)
+        {
+            validGames.Add(gameNum);
+        }
+      }
+      if(validGames.Count == sets.Length)
+      {
+        retval+=gameNum;
+      }
+    }
+    return retval;
+  }
+  private static int GetColorCount(string setData, string color)
+  {
+      string pattern = $@"(\d+) {color}";
+      Match match = Regex.Match(setData, pattern);
+
+      if (match.Success)
+      {
+          return int.Parse(match.Groups[1].Value);
+      }
+
+      return 0;
+  }
+   public static int Day2_1()
+   {
+     var lines = File.ReadAllLines("inputs/day2.txt");
+     var pattern = @"Game (\d+): (.*$)";
+     var retval = 0;
+     foreach(var line in lines)
+     {
+       var match = Regex.Match(line, pattern);
+
+       var data = match.Groups[2].Value;
+       var sets = data.Split(new[] { ';' });
+
+       var maxColorCount = new Dictionary<string, int>();
+       foreach(var s in sets)
+       {
+         var redCount = GetColorCount(s, "red");
+         var greenCount = GetColorCount(s, "green");
+         var blueCount = GetColorCount(s, "blue");
+
+         if(maxColorCount.ContainsKey("red"))
+         {
+           if(maxColorCount["red"] < redCount)
+           {
+             maxColorCount["red"] = redCount;
+           }
+         }
+         else
+          {
+            maxColorCount["red"] = redCount;
+          }
+         if(maxColorCount.ContainsKey("green"))
+          {
+            if(maxColorCount["green"] < greenCount)
+            {
+              maxColorCount["green"] = greenCount;
+            }
+          }
+         else
+         {
+           maxColorCount["green"] = greenCount;
+         }
+         if(maxColorCount.ContainsKey("blue"))
+          {
+            if(maxColorCount["blue"] < blueCount)
+            {
+              maxColorCount["blue"] = blueCount;
+            }
+          }
+         else
+         {
+           maxColorCount["blue"] = blueCount;
+         }
+       }
+       retval+=maxColorCount["red"]*maxColorCount["green"]*maxColorCount["blue"];
+     }
+     return retval;
+   }
+  
 }
