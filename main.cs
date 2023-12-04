@@ -2,13 +2,22 @@ using System;
 using System.IO; 
 using System.Text;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
+
+public class MyNumber
+{
+  public List<(int, int)> Coords {get;set;} = new List<(int, int)>();
+
+  public int Value {get;set;}
+  
+} 
 
 public static class Program {
   public static void Main (string[] args) {
 
-    Console.WriteLine(Day2());
-    Console.WriteLine(Day2_1());
+    Console.WriteLine(Day4());
+    Console.WriteLine(Day4_1());
   }
   public static int Day1()
   {
@@ -202,5 +211,200 @@ public static class Program {
      }
      return retval;
    }
+
+  public static int Day3()
+  {
+    var lines = File.ReadAllLines("inputs/day3.txt");
+    var retval = 0;
+
+    for(var i = 0; i < lines.Length; i++)
+    {
+      var d = "";
+      
+      var isNeeded = false;
+      for(var j = 0; j < lines[i].Length; j++)
+      {
+        if(Char.IsDigit(lines[i][j]))
+        {
+          d+=lines[i][j];
+          
+          isNeeded = isNeeded || CheckNeighbours(lines, i, j);
+        }
+        else if(d != "")
+        {
+          if(isNeeded)
+          {
+            retval+=int.Parse(d);
+          }
+          d = "";
+          isNeeded = false;
+        }        
+      }
+      if(d != "" && isNeeded)
+      {
+        retval+=int.Parse(d);
+      }
+    }
+    return retval;
+    
+  }
+  private static bool CheckNeighbours(string[] lines, int i, int j)
+  {
+    return (j < lines[i].Length-1 && lines[i][j+1] != '.' && !Char.IsDigit(lines[i][j+1]) ||
+      j> 0 && lines[i][j-1] != '.' && !Char.IsDigit(lines[i][j-1])||
+      i> 0 && lines[i-1][j] != '.' && !Char.IsDigit(lines[i-1][j]) ||
+      i < lines.Length-1 && lines[i+1][j] != '.' && !Char.IsDigit(lines[i+1][j]) ||
+      j< lines[i].Length-1 && i> 0 && lines[i-1][j+1]!= '.' && !Char.IsDigit(lines[i-1][j+1])||
+      i < lines.Length-1 && j< lines[i].Length-1 && lines[i+1][j+1]!= '.' && !Char.IsDigit(lines[i+1][j+1]) ||
+      i > 0 && j > 0 && lines[i-1][j-1]!= '.' && !Char.IsDigit(lines[i-1][j-1]) ||
+      i < lines.Length-1 && j > 0 && lines[i+1][j-1]!= '.' && !Char.IsDigit(lines[i+1][j-1]));
+  }
+
+  public static int Day3_1()
+  {
+    var lines = File.ReadAllLines("inputs/day3.txt");
+    var retval = 0;
+    var coords = new Dictionary<(int, int), MyNumber>();
+    
+    for(var i = 0; i < lines.Length; i++)
+    {
+      var d = "";
+      var myNumber = new MyNumber();
+      for(var j = 0; j < lines[i].Length; j++)
+      {        
+        if(Char.IsDigit(lines[i][j]))
+        {
+          d+=lines[i][j];
+          coords[(i, j)] = myNumber;
+          myNumber.Coords.Add((i, j));
+        }
+        else if(d != "")
+        {
+          myNumber.Value = int.Parse(d);
+          d = "";
+          myNumber = new MyNumber();
+        }
+      }
+      if(d != "")
+      {
+        myNumber.Value = int.Parse(d);
+      }
+    }
+
+    (int, int)[] directions = {
+        (-1, -1), (-1, 0), (-1, 1),
+        (0, -1),           (0, 1),
+        (1, -1), (1, 0), (1, 1)
+    };
+    
+    for(var i = 0; i < lines.Length; i++)
+    {
+      for(var j = 0; j < lines[i].Length; j++)
+      {
+        var c = lines[i][j]; 
+
+        if (c == '*')
+        {
+            
+            var nums = new HashSet<MyNumber>();
+            foreach ((int di, int dj) in directions)
+            {
+                int nx = j + dj;
+                int ny = i + di;
+                
+                if (coords.TryGetValue((ny, nx), out MyNumber v))
+                {
+                    nums.Add(v);
+                }
+                
+            }
+            if (nums.Count == 2)
+            {
+                int a = nums.ToList()[0].Value;
+                int b = nums.ToList()[1].Value;
+                retval += a * b;
+            }
+        }
+
+      }
+    }
+    
+    return retval;
+  }
+
+  public static int Day4()
+  {
+     var lines = File.ReadAllLines("inputs/day4.txt");
+     var retval = 0;
+     foreach(var line in lines)
+    {
+       var groups = line.Split(':');
+       var firstGroup = groups[1].Trim(); 
+       var subGroups = firstGroup.Split('|');
+
+       var winningNums = subGroups[0].Split(new char[] { ' ', '\t' },  StringSplitOptions.RemoveEmptyEntries) ;
+       Array.ConvertAll(winningNums, int.Parse);
+       var myNums = subGroups[1].Split(new char[] { ' ', '\t' },  StringSplitOptions.RemoveEmptyEntries);
+      Array.ConvertAll(myNums, int.Parse);
+
+      var totalScore = 0;
+      foreach(var winningNum in winningNums)
+      {
+        if(myNums.Contains(winningNum))
+        {
+          if(totalScore == 0)
+          {
+            totalScore = 1;
+          }
+          else
+          {
+            totalScore *= 2;
+          }
+        }
+      }
+      retval+=totalScore;
+    }
+    return retval;
+  }
+
+  public static int Day4_1()
+  {
+    var lines = File.ReadAllLines("inputs/day4.txt");
+    var retval = 0;
+    var cardsDict = new Dictionary<int, int>();
+    foreach(var line in lines)
+    {
+       var groups = line.Split(':');
+
+      var cardNum = int.Parse(groups[0].Split(' ', StringSplitOptions.RemoveEmptyEntries)[1]);
+       var firstGroup = groups[1].Trim(); 
+       var subGroups = firstGroup.Split('|');
+
+       var winningNums = subGroups[0].Split(new char[] { ' ', '\t' },  StringSplitOptions.RemoveEmptyEntries) ;
+       Array.ConvertAll(winningNums, int.Parse);
+       var myNums = subGroups[1].Split(new char[] { ' ', '\t' },  StringSplitOptions.RemoveEmptyEntries);
+      Array.ConvertAll(myNums, int.Parse);
+
+      var winningCount = 0;
+      foreach(var winningNum in winningNums)
+      {
+        if(myNums.Contains(winningNum))
+        {
+          winningCount+=1; 
+        }
+      }
+      
+      cardsDict[cardNum] = cardsDict.GetValueOrDefault(cardNum, 0) + 1;
+            
+      retval += cardsDict[cardNum];
+      
+      for(var i = 1; i <= winningCount; i++)
+      {
+        cardsDict[cardNum+i] = cardsDict.GetValueOrDefault(cardNum+i, 0) +cardsDict[cardNum];
+      }
+    }
+    
+    return retval;
+  }
   
 }
