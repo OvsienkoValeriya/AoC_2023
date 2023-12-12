@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "WtS1fC6B/nlcidlMwdcqIyYoisvLWoFdNB+zGhh0wAzsKQfuXDYB+ARPLdVbEWUamI0NSk8CEIwzg1HI0RcLuQ==",
+  "dgSpecHash": "VcllB7LKl0eiSGvzvpBHhBHPyssFpRm6VjXpOs/vk2fOcBxT4CVaunezGhyxxUHsb7TWx8YdHWhyrBDgBfDrQQ==",
   "success": true,
-  "projectFilePath": "/home/runner/AoC2023/main.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "/Users/valeria/RiderProjects/AoC_2023/AdventOfCode2023.csproj",
+  "expectedPackageFiles": [
+    "/Users/valeria/.nuget/packages/microsoft.netcore.app.ref/6.0.11/microsoft.netcore.app.ref.6.0.11.nupkg.sha512",
+    "/Users/valeria/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.11/microsoft.aspnetcore.app.ref.6.0.11.nupkg.sha512"
+  ],
   "logs": []
 }

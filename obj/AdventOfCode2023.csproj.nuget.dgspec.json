@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "/Users/valeria/RiderProjects/AoC_2023/main.csproj": {}
+    "/Users/valeria/RiderProjects/AoC_2023/AdventOfCode2023.csproj": {}
   },
   "projects": {
-    "/Users/valeria/RiderProjects/AoC_2023/main.csproj": {
+    "/Users/valeria/RiderProjects/AoC_2023/AdventOfCode2023.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/valeria/RiderProjects/AoC_2023/main.csproj",
+        "projectUniqueName": "/Users/valeria/RiderProjects/AoC_2023/AdventOfCode2023.csproj",
         "projectName": "AdventOfCode2023",
-        "projectPath": "/Users/valeria/RiderProjects/AoC_2023/main.csproj",
+        "projectPath": "/Users/valeria/RiderProjects/AoC_2023/AdventOfCode2023.csproj",
         "packagesPath": "/Users/valeria/.nuget/packages/",
         "outputPath": "/Users/valeria/RiderProjects/AoC_2023/obj/",
         "projectStyle": "PackageReference",

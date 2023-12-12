@@ -8,29 +8,29 @@
     "net6.0": []
   },
   "packageFolders": {
-    "/home/runner/.nuget/packages/": {}
+    "/Users/valeria/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/runner/AoC2023/main.csproj",
-      "projectName": "main",
-      "projectPath": "/home/runner/AoC2023/main.csproj",
-      "packagesPath": "/home/runner/.nuget/packages/",
-      "outputPath": "/home/runner/AoC2023/obj/",
+      "projectUniqueName": "/Users/valeria/RiderProjects/AoC_2023/AdventOfCode2023.csproj",
+      "projectName": "AdventOfCode2023",
+      "projectPath": "/Users/valeria/RiderProjects/AoC_2023/AdventOfCode2023.csproj",
+      "packagesPath": "/Users/valeria/.nuget/packages/",
+      "outputPath": "/Users/valeria/RiderProjects/AoC_2023/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/runner/.nuget/NuGet/NuGet.Config"
+        "/Users/valeria/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
-        "netcoreapp6.0"
+        "net6.0"
       ],
       "sources": {
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
-          "targetAlias": "netcoreapp6.0",
+          "targetAlias": "net6.0",
           "projectReferences": {}
         }
       },
@@ -42,7 +42,7 @@
     },
     "frameworks": {
       "net6.0": {
-        "targetAlias": "netcoreapp6.0",
+        "targetAlias": "net6.0",
         "imports": [
           "net461",
           "net462",
@@ -54,12 +54,22 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[6.0.11, 6.0.11]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[6.0.11, 6.0.11]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/nix/store/4axlc21msjr9g181l2y6hxsmm4jar8i7-dotnet-sdk-6.0.403/sdk/6.0.403/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/opt/homebrew/Cellar/dotnet/7.0.100/libexec/sdk/7.0.100/RuntimeIdentifierGraph.json"
       }
     }
   }
