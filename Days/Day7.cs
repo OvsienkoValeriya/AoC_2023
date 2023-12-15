@@ -14,7 +14,7 @@ public class Day7 : BaseDay
 
     public override string PartOne()
     {
-        var rawLines = File.ReadAllLines("day7.txt");
+        var rawLines = File.ReadAllLines("inputs/day7.txt");
 
         var playsDict = new Dictionary<string, int>();
 
@@ -40,7 +40,7 @@ public class Day7 : BaseDay
 
     public override string PartTwo()
     {
-        var rawLines = File.ReadAllLines("day7.txt");
+        var rawLines = File.ReadAllLines("inputs/day7.txt");
 
         var playsDict = new Dictionary<string, int>();
 
@@ -96,7 +96,7 @@ public class Day7 : BaseDay
         }
         else if (uniqueCount == 2)
         {
-            int maxCount = counts.Values.Max();
+            var maxCount = counts.Values.Max();
             if (maxCount == 4)
                 return 6;
             else
