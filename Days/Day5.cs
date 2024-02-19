@@ -12,7 +12,7 @@ public class Day5 : BaseDay
     {
         var orig = new List<long>();
 
-        using var sr = new StreamReader("/Users/valeria/RiderProjects/AoC_2023/inputs/day5.txt");
+        using var sr = new StreamReader("inputs/day5.txt");
         var fileContent = sr.ReadToEnd().Trim();
         var blocks = fileContent.Split("\n\n");
 
@@ -29,7 +29,7 @@ public class Day5 : BaseDay
 
     public override string PartTwo()
     {
-        var lines = File.ReadAllLines("/Users/valeria/RiderProjects/AoC_2023/inputs/day5.txt");
+        var lines = File.ReadAllLines("inputs/day5.txt");
         var inputs = lines[0].Split(':')[1].Split().Skip(1).ToArray();
         var seeds = new List<(long, long)>();
 
@@ -40,7 +40,7 @@ public class Day5 : BaseDay
             seeds.Add((start, start + length));
         }
 
-        var fileContent = File.ReadAllText("/Users/valeria/RiderProjects/AoC_2023/inputs/day5.txt");
+        var fileContent = File.ReadAllText("inputs/day5.txt");
         var blocks = fileContent.Split("\n\n");
         var maps = blocks.Select(block => block.Split(':')[1].Trim().Split('\n')).ToArray();
 

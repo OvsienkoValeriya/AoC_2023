@@ -11,7 +11,7 @@ public class Day12 : BaseDay
     {
         long retval = 0;
 
-        var lines = File.ReadLines("/Users/valeria/RiderProjects/AoC_2023/inputs/day12.txt");
+        var lines = File.ReadLines("inputs/day12.txt");
 
         foreach (var line in lines)
         {
@@ -27,7 +27,7 @@ public class Day12 : BaseDay
     {
         long retval = 0;
 
-        var lines = File.ReadLines("/Users/valeria/RiderProjects/AoC_2023/inputs/day12.txt");
+        var lines = File.ReadLines("inputs/day12.txt");
 
         foreach (var line in lines)
         {

@@ -10,7 +10,7 @@ public class Day11 : BaseDay
 {
     public override string PartOne()
     {
-        var grid = File.ReadAllLines("/Users/valeria/RiderProjects/AoC_2023/inputs/day11.txt");
+        var grid = File.ReadAllLines("inputs/day11.txt");
 
         var emptyRows = Enumerable.Range(0, grid.Length)
             .Where(r => grid[r].All(ch => ch == '.'))
@@ -52,7 +52,7 @@ public class Day11 : BaseDay
 
     public override string PartTwo()
     {
-        var grid = File.ReadAllLines("/Users/valeria/RiderProjects/AoC_2023/inputs/day11.txt");
+        var grid = File.ReadAllLines("inputs/day11.txt");
 
         var emptyRows = Enumerable.Range(0, grid.Length)
             .Where(r => grid[r].All(ch => ch == '.'))

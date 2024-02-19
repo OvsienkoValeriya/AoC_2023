@@ -25,7 +25,7 @@ namespace AdventOfCode2023.Days
                 return validGames.Count == sets.Length ? gameNum : 0;
             };
 
-            return Compute("/Users/valeria/RiderProjects/AoC_2023/inputs/day2.txt", partOneCompute).ToString();
+            return Compute("inputs/day2.txt", partOneCompute).ToString();
         }
 
         public override string PartTwo()
@@ -40,7 +40,7 @@ namespace AdventOfCode2023.Days
 
                 return maxColorCount["red"] * maxColorCount["green"] * maxColorCount["blue"];
             };
-            return Compute("/Users/valeria/RiderProjects/AoC_2023/inputs/day2.txt", partTwoCompute).ToString();
+            return Compute("inputs/day2.txt", partTwoCompute).ToString();
         }
 
         private int Compute(string path, Func<string[], int, int> compute)

@@ -9,7 +9,7 @@ public class Day8: BaseDay
 {
     public override string PartOne()
     {
-        var lines = File.ReadAllText("/Users/valeria/RiderProjects/AoC_2023/inputs/day8.txt").Split("\n");
+        var lines = File.ReadAllText("inputs/day8.txt").Split("\n");
 
         var instructions = lines[0].Trim();
         var data = new Dictionary<string, (string, string)>();
@@ -37,7 +37,7 @@ public class Day8: BaseDay
 
     public override string PartTwo()
     {
-        var lines = File.ReadAllText("/Users/valeria/RiderProjects/AoC_2023/inputs/day8.txt").Split("\n");
+        var lines = File.ReadAllText("inputs/day8.txt").Split("\n");
 
         var instructions = lines[0].Trim();
         var data = new Dictionary<string, (string, string)>();

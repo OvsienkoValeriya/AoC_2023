@@ -9,7 +9,7 @@ public class Day18: BaseDay
 {
     public override string PartOne()
     {
-        var lines = File.ReadAllLines("/Users/valeria/RiderProjects/AoC_2023/inputs/day18.txt");
+        var lines = File.ReadAllLines("inputs/day18.txt");
         var commands = new List<string>();
         foreach(var line in lines)
         {
@@ -56,7 +56,7 @@ public class Day18: BaseDay
 
     public override string PartTwo()
     {
-        var lines = File.ReadAllLines("/Users/valeria/RiderProjects/AoC_2023/inputs/day18.txt");
+        var lines = File.ReadAllLines("inputs/day18.txt");
         var commands = new List<string>();
         foreach(var line in lines)
         {

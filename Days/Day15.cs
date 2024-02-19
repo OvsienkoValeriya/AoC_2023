@@ -9,7 +9,7 @@ public class Day15: BaseDay
 {
     public override string PartOne()
     {
-        var lines = File.ReadAllText("/Users/valeria/RiderProjects/AoC_2023/inputs/day15.txt").Split(",");
+        var lines = File.ReadAllText("inputs/day15.txt").Split(",");
         var retval = 0;
         foreach(var line in lines)
         {
@@ -28,7 +28,7 @@ public class Day15: BaseDay
 
     public override string PartTwo()
     {
-        var lines = File.ReadAllText("/Users/valeria/RiderProjects/AoC_2023/inputs/day15.txt").Split(",");
+        var lines = File.ReadAllText("inputs/day15.txt").Split(",");
         var focal_lengths = new Dictionary<string, int>();
         var boxes = new List<string>[256];
         foreach(var line in lines)

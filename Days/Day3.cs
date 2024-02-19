@@ -10,7 +10,7 @@ public class Day3: BaseDay
 {
     public override string PartOne()
     {
-        var lines = File.ReadAllLines("/Users/valeria/RiderProjects/AoC_2023/inputs/day3.txt");
+        var lines = File.ReadAllLines("inputs/day3.txt");
         var retval = 0;
 
         for(var i = 0; i < lines.Length; i++)
@@ -46,7 +46,7 @@ public class Day3: BaseDay
 
     public override string PartTwo()
     {
-        var lines = File.ReadAllLines("/Users/valeria/RiderProjects/AoC_2023/inputs/day3.txt");
+        var lines = File.ReadAllLines("inputs/day3.txt");
             var retval = 0;
             var coords = new Dictionary<(int, int), MyNumber>();
             

@@ -14,7 +14,7 @@ public class Day7 : BaseDay
 
     public override string PartOne()
     {
-        var rawLines = File.ReadAllLines("/Users/valeria/RiderProjects/AoC_2023/inputs/day7.txt");
+        var rawLines = File.ReadAllLines("inputs/day7.txt");
 
         var playsDict = new Dictionary<string, int>();
 
@@ -40,7 +40,7 @@ public class Day7 : BaseDay
 
     public override string PartTwo()
     {
-        var rawLines = File.ReadAllLines("/Users/valeria/RiderProjects/AoC_2023/inputs/day7.txt");
+        var rawLines = File.ReadAllLines("inputs/day7.txt");
 
         var playsDict = new Dictionary<string, int>();
 

@@ -10,7 +10,7 @@ public class Day4 : BaseDay
 {
     public override string PartOne()
     {
-        var lines = File.ReadAllLines("/Users/valeria/RiderProjects/AoC_2023/inputs/day4.txt");
+        var lines = File.ReadAllLines("inputs/day4.txt");
         var retval = 0;
         foreach (var line in lines)
         {
@@ -47,7 +47,7 @@ public class Day4 : BaseDay
 
     public override string PartTwo()
     {
-        var lines = File.ReadAllLines("/Users/valeria/RiderProjects/AoC_2023/inputs/day4.txt");
+        var lines = File.ReadAllLines("inputs/day4.txt");
         var retval = 0;
         var cardsDict = new Dictionary<int, int>();
         foreach (var line in lines)

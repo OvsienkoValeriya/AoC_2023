@@ -10,7 +10,7 @@ public class Day13 : BaseDay
     public override string PartOne()
     {
         var retval = 0;
-        foreach (var block in File.ReadAllText("/Users/valeria/RiderProjects/AoC_2023/inputs/day13.txt").Split("\n\n")) 
+        foreach (var block in File.ReadAllText("inputs/day13.txt").Split("\n\n")) 
         {
             var grid = block.Split('\n');
             var row = FindMirrorRow(grid);
@@ -26,7 +26,7 @@ public class Day13 : BaseDay
     public override string PartTwo()
     {
         var retval = 0;
-        foreach (var block in File.ReadAllText("/Users/valeria/RiderProjects/AoC_2023/inputs/day13.txt").Split("\n\n")) 
+        foreach (var block in File.ReadAllText("inputs/day13.txt").Split("\n\n")) 
         {
             var grid = block.Split('\n');
             var row = FindMirrorRowWithSmudge(grid);

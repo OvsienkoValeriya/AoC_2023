@@ -10,7 +10,7 @@ public class Day1: BaseDay
 {
     public override string PartOne()
     {
-        var lines = File.ReadAllLines("/Users/valeria/RiderProjects/AoC_2023/inputs/day1.txt");
+        var lines = File.ReadAllLines("inputs/day1.txt");
         var sum = 0;
         foreach (var line in lines)
         {
@@ -21,7 +21,7 @@ public class Day1: BaseDay
 
     public override string PartTwo()
     {
-        var lines = File.ReadAllLines("/Users/valeria/RiderProjects/AoC_2023/inputs/day1.txt");
+        var lines = File.ReadAllLines("inputs/day1.txt");
         var sum = 0;
         foreach (var line in lines)
         {

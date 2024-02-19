@@ -10,14 +10,14 @@ public class Day16: BaseDay
 {
     public override string PartOne()
     {
-        var grid = File.ReadAllLines("/Users/valeria/RiderProjects/AoC_2023/inputs/day16.txt");
+        var grid = File.ReadAllLines("inputs/day16.txt");
 
         return Calculate(grid, 0, -1, 0, 1).ToString();
     }
 
     public override string PartTwo()
     {
-        var grid = File.ReadAllLines("/Users/valeria/RiderProjects/AoC_2023/inputs/day16.txt");
+        var grid = File.ReadAllLines("inputs/day16.txt");
 
         var maxVal = 0;
 
