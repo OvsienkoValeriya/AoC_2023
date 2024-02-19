@@ -10,7 +10,7 @@ public class Day9: BaseDay
     {
         var retval = 0;
 
-        var lines = File.ReadAllLines("inputs/day9.txt");
+        var lines = File.ReadAllLines("/Users/valeria/RiderProjects/AoC_2023/inputs/day9.txt");
         foreach(var line in lines)
         {
             var nums = line.Split().Select(int.Parse).ToArray();
@@ -24,7 +24,7 @@ public class Day9: BaseDay
     {
         var retval = 0;
 
-        var lines = File.ReadAllLines("inputs/day9.txt");
+        var lines = File.ReadAllLines("/Users/valeria/RiderProjects/AoC_2023/inputs/day9.txt");
         foreach(var line in lines)
         {
             var nums = line.Split().Select(int.Parse).ToArray();

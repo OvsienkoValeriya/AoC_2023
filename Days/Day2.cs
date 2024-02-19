@@ -25,7 +25,7 @@ namespace AdventOfCode2023.Days
                 return validGames.Count == sets.Length ? gameNum : 0;
             };
 
-            return Compute("inputs/day2.txt", partOneCompute).ToString();
+            return Compute("/Users/valeria/RiderProjects/AoC_2023/inputs/day2.txt", partOneCompute).ToString();
         }
 
         public override string PartTwo()
@@ -40,7 +40,7 @@ namespace AdventOfCode2023.Days
 
                 return maxColorCount["red"] * maxColorCount["green"] * maxColorCount["blue"];
             };
-            return Compute("inputs/day2.txt", partTwoCompute).ToString();
+            return Compute("/Users/valeria/RiderProjects/AoC_2023/inputs/day2.txt", partTwoCompute).ToString();
         }
 
         private int Compute(string path, Func<string[], int, int> compute)
@@ -70,14 +70,9 @@ namespace AdventOfCode2023.Days
 
         private int GetColorCount(string setData, string color)
         {
-            string pattern = $@"(\d+) {color}";
-            Match match = Regex.Match(setData, pattern);
-            if (match.Success)
-            {
-                return int.Parse(match.Groups[1].Value);
-            }
-
-            return 0;
+            var pattern = $@"(\d+) {color}";
+            var match = Regex.Match(setData, pattern);
+            return match.Success ? int.Parse(match.Groups[1].Value) : 0;
         }
 
         private void UpdateColorCounts(string s, IDictionary<string, int> maxColorCount)
@@ -86,16 +81,12 @@ namespace AdventOfCode2023.Days
             foreach (var color in colors)
             {
                 var currentCount = GetColorCount(s, color);
-                if (maxColorCount.ContainsKey(color))
+                if (!maxColorCount.TryAdd(color, currentCount))
                 {
                     if (maxColorCount[color] < currentCount)
                     {
                         maxColorCount[color] = currentCount;
                     }
-                }
-                else
-                {
-                    maxColorCount[color] = currentCount;
                 }
             }
         }

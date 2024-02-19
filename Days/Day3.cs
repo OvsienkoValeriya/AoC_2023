@@ -10,7 +10,7 @@ public class Day3: BaseDay
 {
     public override string PartOne()
     {
-        var lines = File.ReadAllLines("inputs/day3.txt");
+        var lines = File.ReadAllLines("/Users/valeria/RiderProjects/AoC_2023/inputs/day3.txt");
         var retval = 0;
 
         for(var i = 0; i < lines.Length; i++)
@@ -20,9 +20,9 @@ public class Day3: BaseDay
             var isNeeded = false;
             for(var j = 0; j < lines[i].Length; j++)
             {
-                if(Char.IsDigit(lines[i][j]))
+                if(char.IsDigit(lines[i][j]))
                 {
-                    d+=lines[i][j];
+                    d += lines[i][j];
           
                     isNeeded = isNeeded || CheckNeighbours(lines, i, j);
                 }
@@ -30,7 +30,7 @@ public class Day3: BaseDay
                 {
                     if(isNeeded)
                     {
-                        retval+=int.Parse(d);
+                        retval += int.Parse(d);
                     }
                     d = "";
                     isNeeded = false;
@@ -38,7 +38,7 @@ public class Day3: BaseDay
             }
             if(d != "" && isNeeded)
             {
-                retval+=int.Parse(d);
+                retval += int.Parse(d);
             }
         }
         return retval.ToString();
@@ -46,7 +46,7 @@ public class Day3: BaseDay
 
     public override string PartTwo()
     {
-        var lines = File.ReadAllLines("inputs/day3.txt");
+        var lines = File.ReadAllLines("/Users/valeria/RiderProjects/AoC_2023/inputs/day3.txt");
             var retval = 0;
             var coords = new Dictionary<(int, int), MyNumber>();
             
@@ -56,7 +56,7 @@ public class Day3: BaseDay
               var myNumber = new MyNumber();
               for(var j = 0; j < lines[i].Length; j++)
               {        
-                if(Char.IsDigit(lines[i][j]))
+                if(char.IsDigit(lines[i][j]))
                 {
                   d+=lines[i][j];
                   coords[(i, j)] = myNumber;
@@ -91,7 +91,7 @@ public class Day3: BaseDay
                 {
                     
                     var nums = new HashSet<MyNumber>();
-                    foreach ((int di, int dj) in directions)
+                    foreach ((var di, var dj) in directions)
                     {
                         var nx = j + dj;
                         var ny = i + di;
@@ -118,14 +118,14 @@ public class Day3: BaseDay
     
     private bool CheckNeighbours(string[] lines, int i, int j)
     {
-        return (j < lines[i].Length-1 && lines[i][j+1] != '.' && !Char.IsDigit(lines[i][j+1]) ||
-                j> 0 && lines[i][j-1] != '.' && !Char.IsDigit(lines[i][j-1])||
-                i> 0 && lines[i-1][j] != '.' && !Char.IsDigit(lines[i-1][j]) ||
-                i < lines.Length-1 && lines[i+1][j] != '.' && !Char.IsDigit(lines[i+1][j]) ||
-                j< lines[i].Length-1 && i> 0 && lines[i-1][j+1]!= '.' && !Char.IsDigit(lines[i-1][j+1])||
-                i < lines.Length-1 && j< lines[i].Length-1 && lines[i+1][j+1]!= '.' && !Char.IsDigit(lines[i+1][j+1]) ||
-                i > 0 && j > 0 && lines[i-1][j-1]!= '.' && !Char.IsDigit(lines[i-1][j-1]) ||
-                i < lines.Length-1 && j > 0 && lines[i+1][j-1]!= '.' && !Char.IsDigit(lines[i+1][j-1]));
+        return (j < lines[i].Length-1 && lines[i][j+1] != '.' && !char.IsDigit(lines[i][j+1]) ||
+                j> 0 && lines[i][j-1] != '.' && !char.IsDigit(lines[i][j-1])||
+                i> 0 && lines[i-1][j] != '.' && !char.IsDigit(lines[i-1][j]) ||
+                i < lines.Length-1 && lines[i+1][j] != '.' && !char.IsDigit(lines[i+1][j]) ||
+                j< lines[i].Length-1 && i> 0 && lines[i-1][j+1]!= '.' && !char.IsDigit(lines[i-1][j+1])||
+                i < lines.Length-1 && j< lines[i].Length-1 && lines[i+1][j+1]!= '.' && !char.IsDigit(lines[i+1][j+1]) ||
+                i > 0 && j > 0 && lines[i-1][j-1]!= '.' && !char.IsDigit(lines[i-1][j-1]) ||
+                i < lines.Length-1 && j > 0 && lines[i+1][j-1]!= '.' && !char.IsDigit(lines[i+1][j-1]));
     }
 }
 

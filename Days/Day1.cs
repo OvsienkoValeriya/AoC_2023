@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using AdventOfCode2023.UI;
 
@@ -9,7 +10,7 @@ public class Day1: BaseDay
 {
     public override string PartOne()
     {
-        var lines = FetchInput();
+        var lines = File.ReadAllLines("/Users/valeria/RiderProjects/AoC_2023/inputs/day1.txt");
         var sum = 0;
         foreach (var line in lines)
         {
@@ -20,7 +21,7 @@ public class Day1: BaseDay
 
     public override string PartTwo()
     {
-        var lines = FetchInput();
+        var lines = File.ReadAllLines("/Users/valeria/RiderProjects/AoC_2023/inputs/day1.txt");
         var sum = 0;
         foreach (var line in lines)
         {
@@ -30,9 +31,9 @@ public class Day1: BaseDay
             {
                 var substring = line.Substring(j);
                 
-                if (Char.IsDigit(line[j]))
+                if (char.IsDigit(line[j]))
                 {
-                    digits.Add(Int32.Parse(line[j].ToString()));
+                    digits.Add(int.Parse(line[j].ToString()));
                 }
                 else
                 {
@@ -45,40 +46,32 @@ public class Day1: BaseDay
                 }
             }
 
-            var lineSum = Int32.Parse(digits[0] + digits[^1].ToString());
+            var lineSum = int.Parse(digits[0] + digits[^1].ToString());
             sum += lineSum;
         }
         return sum.ToString();
     }
-
-    private static string[] FetchInput()
-    {
-        return File.ReadAllLines("inputs/day1.txt");
-    }
-
+    
     private static int GetStringValue(string line)
     {
         var integer = new StringBuilder();
 
-        for (var i = 0; i < line.Length; i++)
+        foreach (var ch in line.Where(ch => char.IsDigit(ch)))
         {
-            if (Char.IsDigit(line[i]))
-            {
-                integer.Append(line[i]);
-                break;
-            }
+            integer.Append(ch);
+            break;
         }
 
         for (var j = line.Length - 1; j >= 0; j--)
         {
-            if (Char.IsDigit(line[j]))
+            if (char.IsDigit(line[j]))
             {
                 integer.Append(line[j]);
                 break;
             }
         }
 
-        return Int32.Parse(integer.ToString());
+        return int.Parse(integer.ToString());
     }
 
     private static int? ParseWordToNumber(string word)
@@ -96,12 +89,9 @@ public class Day1: BaseDay
             {"nine", 9}
         };
 
-        foreach (var entry in numbersDictionary)
+        foreach (var kv in numbersDictionary.Where(entry => word.StartsWith(entry.Key)))
         {
-            if (word.StartsWith(entry.Key))
-            {
-                return entry.Value;
-            }
+            return kv.Value;
         }
 
         return null;

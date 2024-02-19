@@ -9,7 +9,7 @@ public class Day8: BaseDay
 {
     public override string PartOne()
     {
-        var lines = File.ReadAllText("inputs/day8.txt").Split("\n");
+        var lines = File.ReadAllText("/Users/valeria/RiderProjects/AoC_2023/inputs/day8.txt").Split("\n");
 
         var instructions = lines[0].Trim();
         var data = new Dictionary<string, (string, string)>();
@@ -37,7 +37,7 @@ public class Day8: BaseDay
 
     public override string PartTwo()
     {
-        var lines = File.ReadAllText("inputs/day8.txt").Split("\n");
+        var lines = File.ReadAllText("/Users/valeria/RiderProjects/AoC_2023/inputs/day8.txt").Split("\n");
 
         var instructions = lines[0].Trim();
         var data = new Dictionary<string, (string, string)>();
@@ -49,7 +49,7 @@ public class Day8: BaseDay
             data[key] = (values[0], values[1]);
         }
 
-        long steps = 0;
+        var steps = 0;
         var cycleSizes = new List<ulong>();
 
         var startingNodes = data.Keys.Where(k => k.EndsWith('A')).ToList();
@@ -74,7 +74,7 @@ public class Day8: BaseDay
         }
 
         var lcm = cycleSizes[0];
-        for (int i = 1; i < cycleSizes.Count; i++)
+        for (var i = 1; i < cycleSizes.Count; i++)
         {
             lcm = (lcm * cycleSizes[i]) / GCD(lcm, cycleSizes[i]);
         }

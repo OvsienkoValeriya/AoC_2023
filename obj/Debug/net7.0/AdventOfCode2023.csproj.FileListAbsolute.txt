@@ -1,0 +1,12 @@
+/Users/valeria/RiderProjects/AoC_2023/bin/Debug/net7.0/AdventOfCode2023.deps.json
+/Users/valeria/RiderProjects/AoC_2023/bin/Debug/net7.0/AdventOfCode2023.dll
+/Users/valeria/RiderProjects/AoC_2023/bin/Debug/net7.0/AdventOfCode2023.pdb
+/Users/valeria/RiderProjects/AoC_2023/obj/Debug/net7.0/AdventOfCode2023.csproj.AssemblyReference.cache
+/Users/valeria/RiderProjects/AoC_2023/obj/Debug/net7.0/AdventOfCode2023.GeneratedMSBuildEditorConfig.editorconfig
+/Users/valeria/RiderProjects/AoC_2023/obj/Debug/net7.0/AdventOfCode2023.AssemblyInfoInputs.cache
+/Users/valeria/RiderProjects/AoC_2023/obj/Debug/net7.0/AdventOfCode2023.AssemblyInfo.cs
+/Users/valeria/RiderProjects/AoC_2023/obj/Debug/net7.0/AdventOfCode2023.csproj.CoreCompileInputs.cache
+/Users/valeria/RiderProjects/AoC_2023/obj/Debug/net7.0/AdventOfCode2023.dll
+/Users/valeria/RiderProjects/AoC_2023/obj/Debug/net7.0/refint/AdventOfCode2023.dll
+/Users/valeria/RiderProjects/AoC_2023/obj/Debug/net7.0/AdventOfCode2023.pdb
+/Users/valeria/RiderProjects/AoC_2023/obj/Debug/net7.0/ref/AdventOfCode2023.dll

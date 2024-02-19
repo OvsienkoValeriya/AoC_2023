@@ -9,7 +9,7 @@ public class Day6 : BaseDay
 {
     public override string PartOne()
     {
-        var lines = File.ReadAllLines("inputs/day6.txt");
+        var lines = File.ReadAllLines("/Users/valeria/RiderProjects/AoC_2023/inputs/day6.txt");
 
         var timeLine = lines[0].Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
         var distanceLine = lines[1].Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
@@ -39,7 +39,7 @@ public class Day6 : BaseDay
 
     public override string PartTwo()
     {
-        var lines = File.ReadAllLines("inputs/day6.txt");
+        var lines = File.ReadAllLines("/Users/valeria/RiderProjects/AoC_2023/inputs/day6.txt");
 
         var time = long.Parse(string.Join("", lines[0].Where(char.IsDigit)));
         var distance = long.Parse(string.Join("", lines[1].Where(char.IsDigit)));

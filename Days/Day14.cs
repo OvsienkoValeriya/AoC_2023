@@ -12,7 +12,7 @@ public class Day14: BaseDay
     {
         var retval = 0;
 
-        var lines = File.ReadAllLines("inputs/day14.txt");
+        var lines = File.ReadAllLines("/Users/valeria/RiderProjects/AoC_2023/inputs/day14.txt");
         var transposed = TransposeArray(lines);
 
         var newArr = new List<string>();
@@ -44,7 +44,7 @@ public class Day14: BaseDay
 
     public override string PartTwo()
     {
-        var grid = File.ReadAllLines("inputs/day14.txt");
+        var grid = File.ReadAllLines("/Users/valeria/RiderProjects/AoC_2023/inputs/day14.txt");
         var seen = new Dictionary<string, int>();
         var loads = new List<int> { 0 };
 

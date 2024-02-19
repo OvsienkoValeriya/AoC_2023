@@ -14,13 +14,13 @@ public class Day7 : BaseDay
 
     public override string PartOne()
     {
-        var rawLines = File.ReadAllLines("inputs/day7.txt");
+        var rawLines = File.ReadAllLines("/Users/valeria/RiderProjects/AoC_2023/inputs/day7.txt");
 
         var playsDict = new Dictionary<string, int>();
 
         var lines = rawLines.Select(line =>
         {
-            string[] parts = line.Split();
+            var parts = line.Split();
             return (parts[0], int.Parse(parts[1]));
         }).ToList();
 
@@ -29,8 +29,8 @@ public class Day7 : BaseDay
             .ThenBy(x => x.Item1, new CustomStringComparer(labels))
             .ToList();
 
-        int ans = 0;
-        for (int i = 0; i < lines.Count; i++)
+        var ans = 0;
+        for (var i = 0; i < lines.Count; i++)
         {
             ans += (i + 1) * lines[i].Item2;
         }
@@ -40,13 +40,13 @@ public class Day7 : BaseDay
 
     public override string PartTwo()
     {
-        var rawLines = File.ReadAllLines("inputs/day7.txt");
+        var rawLines = File.ReadAllLines("/Users/valeria/RiderProjects/AoC_2023/inputs/day7.txt");
 
         var playsDict = new Dictionary<string, int>();
 
         var lines = rawLines.Select(line =>
         {
-            string[] parts = line.Split();
+            var parts = line.Split();
             return (parts[0], int.Parse(parts[1]));
         }).ToList();
 

@@ -12,26 +12,24 @@ public class Day5 : BaseDay
     {
         var orig = new List<long>();
 
-        using (var sr = new StreamReader("inputs/day5_1.txt"))
+        using var sr = new StreamReader("/Users/valeria/RiderProjects/AoC_2023/inputs/day5.txt");
+        var fileContent = sr.ReadToEnd().Trim();
+        var blocks = fileContent.Split("\n\n");
+
+        var maps = blocks.Select(block => block.Split(':')[1].Trim().Split('\n')).ToArray();
+
+        if (maps[0].Length == 1)
         {
-            var fileContent = sr.ReadToEnd().Trim();
-            var blocks = fileContent.Split("\n\n");
-
-            var maps = blocks.Select(block => block.Split(':')[1].Trim().Split('\n')).ToArray();
-
-            if (maps[0].Length == 1)
-            {
-                orig = maps[0][0].Split(' ').Select(long.Parse).ToList();
-            }
-
-            var result = orig.Select(val => Follow(val, maps)).Min();
-            return result.Item1.ToString();
+            orig = maps[0][0].Split(' ').Select(long.Parse).ToList();
         }
+
+        var result = orig.Select(val => Follow(val, maps)).Min();
+        return result.Item1.ToString();
     }
 
     public override string PartTwo()
     {
-        var lines = File.ReadAllLines("inputs/day5.txt");
+        var lines = File.ReadAllLines("/Users/valeria/RiderProjects/AoC_2023/inputs/day5.txt");
         var inputs = lines[0].Split(':')[1].Split().Skip(1).ToArray();
         var seeds = new List<(long, long)>();
 
@@ -42,7 +40,7 @@ public class Day5 : BaseDay
             seeds.Add((start, start + length));
         }
 
-        var fileContent = File.ReadAllText("inputs/day5.txt");
+        var fileContent = File.ReadAllText("/Users/valeria/RiderProjects/AoC_2023/inputs/day5.txt");
         var blocks = fileContent.Split("\n\n");
         var maps = blocks.Select(block => block.Split(':')[1].Trim().Split('\n')).ToArray();
 
@@ -53,7 +51,6 @@ public class Day5 : BaseDay
             {
                 var range = line.Split().Select(long.Parse).ToList();
                 ranges.Add(range);
-                //Console.WriteLine($"range = {string.Join(",", range)}");
             }
 
             var newSeeds = new List<(long, long)>();
@@ -109,7 +106,7 @@ public class Day5 : BaseDay
 
         foreach (var block in blocks.Skip(1))
         {
-            for (int i = 0; i < block.Length; i++)
+            for (var i = 0; i < block.Length; i++)
             {
                 var rg = block[i].Split().Select(long.Parse).ToArray();
                 long dest = rg[0], src = rg[1], length = rg[2];
