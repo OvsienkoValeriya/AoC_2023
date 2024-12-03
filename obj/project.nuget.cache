@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "AO1v6P3qsX0/j3/NZu2ic9UaKdbS2ba0906Y6X8chkeLONe8+oIoaKLCtQKcySJQhpuNO5PvJx6goQ/WaBQjdg==",
+  "dgSpecHash": "PSs2D4eClaCpS2cf+sPf+Fi9ZDWgV1a8Vl2EgFI1nHA7tJ4EywgFJqSyDNo+SoGw3+DKa6fhplO+IHwr+deMSg==",
   "success": true,
   "projectFilePath": "/Users/valeria/RiderProjects/AoC_2023/AdventOfCode2023.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/valeria/.nuget/packages/microsoft.netcore.app.ref/7.0.18/microsoft.netcore.app.ref.7.0.18.nupkg.sha512",
+    "/Users/valeria/.nuget/packages/microsoft.aspnetcore.app.ref/7.0.18/microsoft.aspnetcore.app.ref.7.0.18.nupkg.sha512"
+  ],
   "logs": []
 }
